@@ -9,5 +9,5 @@ import org.springframework.data.neo4j.repository.GraphRepository;
  * @since 02.04.11
  */
 public interface UserRepository extends GraphRepository<User>, EtwitterUserDetailsService {
-    
+    User findByUsername(String username);
 }

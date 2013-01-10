@@ -23,14 +23,14 @@ public class UserRepositoryImpl implements EtwitterUserDetailsService {
     private Neo4jOperations template;
 
     @Override
-    public EtwitterUserDetails loadUserByUsername(String login) throws UsernameNotFoundException, DataAccessException {
-        final User user = findByLogin(login);
-        if (user==null) throw new UsernameNotFoundException("Username not found: "+login);
+    public EtwitterUserDetails loadUserByUsername(String username) throws UsernameNotFoundException, DataAccessException {
+        final User user = findByUsername(username);
+        if (user==null) throw new UsernameNotFoundException("Username not found: "+username);
         return new EtwitterUserDetails(user);
     }
 
-    private User findByLogin(String login) {
-        return template.lookup(User.class,"login",login).to(User.class).single();
+    private User findByUsername(String username) {
+        return template.lookup(User.class,"username",username).to(User.class).single();
     }
 
     @Override
@@ -50,12 +50,12 @@ public class UserRepositoryImpl implements EtwitterUserDetailsService {
 
     @Override
     @Transactional
-    public User register(String login, String name, String password) {
-        User found = findByLogin(login);
-        if (found!=null) throw new RuntimeException("Login already taken: "+login);
-        if (name==null || name.isEmpty()) throw new RuntimeException("No name provided.");
+    public User register(String email, String username, String password) {
+        User found = findByUsername(username);
+        if (found!=null) throw new RuntimeException("Login already taken: "+username);
+        if (username==null || username.isEmpty()) throw new RuntimeException("No name provided.");
         if (password==null || password.isEmpty()) throw new RuntimeException("No password provided.");
-        User user=template.save(new User(login,name,password,User.Roles.ROLE_USER));
+        User user=template.save(new User(email,username,password,User.Roles.ROLE_USER));
         setUserInSession(user);
         return user;
     }

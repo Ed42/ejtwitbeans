@@ -19,7 +19,7 @@ public interface EtwitterUserDetailsService extends UserDetailsService {
 
 
     @Transactional
-    User register(String login, String name, String password);
+    User register(String username, String name, String password);
 
 
 }
