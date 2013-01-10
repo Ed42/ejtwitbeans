@@ -10,7 +10,7 @@ http://wiki.eclipse.org/Jetty/Tutorial/Embedding_Jetty
 http://www.springsource.org/spring-data/neo4j  
 http://www.springsource.org/node/3642  
 
-!!!!!!!!!!!!!git !!!!!!!!!!!!!!!!!!! 
+!!!!!!!!!!!!!git !!!!!!!!!!!!!!!!!!!  
 git remote add upstream git@github.com:nsavageJVM/ejettygtwitt.git    
 
 git pull -s recursive -X theirs upstream master // merge files from this repo to openshit repo     
