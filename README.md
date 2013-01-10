@@ -11,13 +11,13 @@ http://www.springsource.org/spring-data/neo4j
 http://www.springsource.org/node/3642  
 
 !!!!!!!!!!!!!git !!!!!!!!!!!!!!!!!!!  
-git remote add upstream git@github.com:nsavageJVM/ejettygtwitt.git    
+git remote add upstream ssh://99ee496f6d4847b2a62fe03a81e1e032@ejtwitbeans-democode.rhcloud.com/~/git/ejtwitbeans.git/    
 
 git pull -s recursive -X theirs upstream master // merge files from this repo to openshit repo     
 
-git push  // merged files now on openshift    
+git push upstream // merged files now on openshift    
 
-git push upstream // openshift scripts will now be in this repo   
+git push  // openshift scripts will now be in this repo   
 git add .  
 git commit -m "all"  
 git status  
