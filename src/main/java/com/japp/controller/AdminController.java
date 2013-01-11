@@ -66,12 +66,7 @@ public class AdminController {
         sLogger.warn("UserController: create..");
         sLogger.warn("username:" + username);
 
-        User newUser = new User();
-        newUser.setUsername(username);
-        newUser.setPassword(password);
-        newUser.setEmail(email);
-
-        newUser.setRole(UserMapper.mapRoles(role));
+        User newUser = new User(email, username, password, UserMapper.mapRoles(role)  );
 
         return UserMapper.map(service.create(newUser));
     }
@@ -84,12 +79,7 @@ public class AdminController {
             @RequestParam String email,
             @RequestParam Integer role) {
 
-        User existingUser = new User();
-        existingUser.setUsername(username);
-        existingUser.setPassword(password);
-        existingUser.setEmail(email);
-
-        existingUser.setRole(UserMapper.mapRoles(role));
+     User existingUser = new User(email, username, password, UserMapper.mapRoles(role)  );
         return UserMapper.map(service.update(existingUser));
     }
 
@@ -98,7 +88,7 @@ public class AdminController {
     Boolean delete(
             @RequestParam String username) {
 
-        User existingUser = new User();
+        User existingUser = new User("bb", "bb", username, UserMapper.mapRoles(1)  );
         existingUser.setUsername(username);
 
         return service.deleteExistingUser(existingUser);

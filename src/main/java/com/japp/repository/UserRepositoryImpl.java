@@ -3,8 +3,13 @@ package com.japp.repository;
 import com.japp.domain.User;
 import com.japp.domain.service.EtwitterUserDetails;
 import com.japp.domain.service.EtwitterUserDetailsService;
+import com.japp.util.Logging;
+import java.util.ArrayList;
+import java.util.List;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.neo4j.conversion.EndResult;
 import org.springframework.data.neo4j.template.Neo4jOperations;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -18,17 +23,17 @@ public class UserRepositoryImpl implements EtwitterUserDetailsService {
 
     @Autowired
     private Neo4jOperations template;
-
+    
+     private static org.slf4j.Logger sLogger = LoggerFactory.getLogger(UserRepositoryImpl.class);
+     
 
     @Override
     public EtwitterUserDetails loadUserByUsername(String username) throws UsernameNotFoundException, DataAccessException {
         final User user = findByUsername(username);
-        if (user==null) throw new UsernameNotFoundException("Username not found: "+username);
+        if (user == null) {
+            throw new UsernameNotFoundException("Username not found: " + username);
+        }
         return new EtwitterUserDetails(user);
-    }
-
-    private User findByUsername(String username) {
-        return template.lookup(User.class,"username",username).to(User.class).single();
     }
 
     @Override
@@ -43,17 +48,20 @@ public class UserRepositoryImpl implements EtwitterUserDetailsService {
         return null;
     }
 
- 
-
-
     @Override
     @Transactional
     public User register(String email, String username, String password) {
         User found = findByUsername(username);
-        if (found!=null) throw new RuntimeException("Login already taken: "+username);
-        if (username==null || username.isEmpty()) throw new RuntimeException("No name provided.");
-        if (password==null || password.isEmpty()) throw new RuntimeException("No password provided.");
-        User user=template.save(new User(email,username,password,User.Roles.ROLE_USER));
+        if (found != null) {
+            throw new RuntimeException("Login already taken: " + username);
+        }
+        if (username == null || username.isEmpty()) {
+            throw new RuntimeException("No name provided.");
+        }
+        if (password == null || password.isEmpty()) {
+            throw new RuntimeException("No password provided.");
+        }
+        User user = template.save(new User(email, username, password, User.Roles.ROLE_USER));
         setUserInSession(user);
         return user;
     }
@@ -61,49 +69,52 @@ public class UserRepositoryImpl implements EtwitterUserDetailsService {
     void setUserInSession(User user) {
         SecurityContext context = SecurityContextHolder.getContext();
         EtwitterUserDetails userDetails = new EtwitterUserDetails(user);
-        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, user.getPassword(),userDetails.getAuthorities());
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, user.getPassword(), userDetails.getAuthorities());
         context.setAuthentication(authentication);
 
     }
     
+    @Transactional
+    private User findByUsername(String username) {
+        
+        EndResult<User> list = template.findAll(User.class);
+        List<User> users = new ArrayList<User>();
+            for (User r : list) {
+                if(r.getUsername().equals(username))return r;         
+        }
+       return new User("null user", "null user", "null user", User.Roles.ROLE_USER);
+   
+    }
     
-    	public User create(User user) {
-		User existingUser = findByUsername(user.getUsername());
-		
-		if (existingUser != null) {
-			throw new RuntimeException("Record already exists!");
-		}
+    @Transactional
+    public User create(User user) {
+        User existingUser = findByUsername(user.getUsername());
+        if (existingUser.getEmail().equals("null user"))  return template.save(user);
+        return existingUser ;
+    }
 
-		return template.save(user);
-	}
-    
-	public User update(User user) {
-		User existingUser = findByUsername(user.getUsername());
-		
-		if (existingUser == null) {
-			return null;
-		}
-		
-		existingUser.setUsername(user.getUsername());
-		existingUser.setEmail(user.getEmail());
-		existingUser.setRole(user.getRole());
+    public User update(User user) {
+        User existingUser = findByUsername(user.getUsername());
 
-		return template.save(existingUser);
-	}
- 
-        public Boolean deleteExistingUser(User user) {
-		User existingUser = findByUsername(user.getUsername());
-		
-		if (existingUser == null) {
-			return false;
-		}
-		
-		template.delete(existingUser);
-		return true;
-	}
-        
-        
-        
-        
-        
+        if (existingUser == null) {
+            return null;
+        }
+
+        existingUser.setUsername(user.getUsername());
+        existingUser.setEmail(user.getEmail());
+        existingUser.setRole(user.getRole()[0]);
+
+        return template.save(existingUser);
+    }
+
+    public Boolean deleteExistingUser(User user) {
+        User existingUser = findByUsername(user.getUsername());
+
+        if (existingUser == null) {
+            return false;
+        }
+
+        template.delete(existingUser);
+        return true;
+    }
 }

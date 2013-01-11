@@ -31,11 +31,11 @@ public class UserMapper {
         }
         
         
-            public static User.Roles[] mapRoles(int role) {
-            User.Roles[] roles = new User.Roles[2];
-            if (role == 2) roles[0]=User.Roles.ROLE_USER;
-            else roles[0]=User.Roles.ROLE_ADMIN;
-            return roles;
+            public static User.Roles mapRoles(int role) {
+            
+            if (role == 2) return  User.Roles.ROLE_USER;
+            else return User.Roles.ROLE_ADMIN;
+           
         }
         
         

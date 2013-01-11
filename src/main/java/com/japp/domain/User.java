@@ -66,7 +66,7 @@ public class User {
         return roles;
     }
 
-    public void setRole(Roles[] roles) {
+    public void setRole(Roles... roles) {
 		this.roles = roles;
 	}
     
