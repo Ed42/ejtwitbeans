@@ -1,5 +1,6 @@
 package com.japp.controller;
 
+import com.japp.App;
 import com.japp.domain.User;
 import com.japp.domain.dto.UserDto;
 import com.japp.domain.dto.UserListDto;
@@ -23,7 +24,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/admin")
 public class AdminController {
 
-    private static org.slf4j.Logger sLogger = LoggerFactory.getLogger(AdminController.class);
+   private static org.slf4j.Logger sLogger = LoggerFactory.getLogger(AdminController.class);
+   
+   
     @Autowired
     private UserRepository service;
 
@@ -42,6 +45,7 @@ public class AdminController {
         for (User r : list) {
             users.add(r);
         }
+        sLogger.warn("!!!!!!!!!AdminController: "+users.size());
         userListDto.setUsers(UserMapper.map(users));
         return userListDto;
     }

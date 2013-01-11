@@ -31,6 +31,8 @@
         <!-- JSP -->
         <javax.servlet-api.version>2.5</javax.servlet-api.version>
         <javax.jstl-taglibs.version>1.1.2</javax.jstl-taglibs.version>
+        <!-- Spring mvc and JSP ned this -->
+        <jackson.version>1.9.3</jackson.version>
         
         <!-- Plugins -->
         <maven.compiler.plugin.version>2.3.2</maven.compiler.plugin.version>
@@ -38,6 +40,17 @@
     </properties>
 
     <dependencies>
+        
+        <!-- Data Mapper package is a high-performance data binding package built 
+        on Jackson JSON processor -->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>${jackson.version}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        
         
         <!-- Guice Jetty Logging ect .. -->
         <dependency>
@@ -73,7 +86,7 @@
         
         
         <!-- The JavaServer Pages Standard Tag Library (JSTL) encapsulates, as simple tags, core 
-       	functionality common to many JSP applications. -->
+        functionality common to many JSP applications. -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>

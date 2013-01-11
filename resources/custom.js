@@ -39,9 +39,9 @@ function submitNewRecord() {
             email:email,
             role:role
         }, 
-        dataType: 'text',
+        dataType: 'text html',
         async: false,
-        success: function(data, response) {
+        success: function(response) {
             if (response != null) {
                 loadTable();
                 toggleForms('hide');

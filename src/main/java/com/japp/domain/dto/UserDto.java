@@ -10,6 +10,11 @@ public class UserDto implements Serializable {
     private String username;
     private Integer role;
 
+    
+    
+    public UserDto() {
+    }
+
     public Long getId() {
         return id;
     }

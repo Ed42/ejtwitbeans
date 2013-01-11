@@ -11,7 +11,6 @@
     <context:annotation-config/>
     <security:global-method-security secured-annotations="enabled">
     </security:global-method-security>
-
     <security:http auto-config="true" access-denied-page="/auth/denied"> <!-- use-expressions="true" -->
         <security:intercept-url pattern="/admin/*" access="ROLE_ADMIN"/>
         <security:intercept-url pattern="/admin" access="ROLE_ADMIN"/>
@@ -20,8 +19,10 @@
         <security:intercept-url pattern="/auth/register" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <security:intercept-url pattern="/auth/denied" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <security:intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <security:intercept-url pattern="/favicon.ico" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <security:intercept-url pattern="/robots.txt" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <security:form-login login-page="/auth/login" authentication-failure-url="/auth/login?login_error=true"
-        default-target-url="/admin"/>
+                             default-target-url="/admin"/>
         <security:logout logout-url="/auth/logout" logout-success-url="/" invalidate-session="true"/>
     </security:http>
 
