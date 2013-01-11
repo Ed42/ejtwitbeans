@@ -11,16 +11,14 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * @author mh
- * @since 06.03.11
- */
 public class UserRepositoryImpl implements EtwitterUserDetailsService {
 
     @Autowired
     private Neo4jOperations template;
+
 
     @Override
     public EtwitterUserDetails loadUserByUsername(String username) throws UsernameNotFoundException, DataAccessException {
@@ -67,6 +65,45 @@ public class UserRepositoryImpl implements EtwitterUserDetailsService {
         context.setAuthentication(authentication);
 
     }
+    
+    
+    	public User create(User user) {
+		User existingUser = findByUsername(user.getUsername());
+		
+		if (existingUser != null) {
+			throw new RuntimeException("Record already exists!");
+		}
 
+		return template.save(user);
+	}
+    
+	public User update(User user) {
+		User existingUser = findByUsername(user.getUsername());
+		
+		if (existingUser == null) {
+			return null;
+		}
+		
+		existingUser.setUsername(user.getUsername());
+		existingUser.setEmail(user.getEmail());
+		existingUser.setRole(user.getRole());
+
+		return template.save(existingUser);
+	}
  
+        public Boolean deleteExistingUser(User user) {
+		User existingUser = findByUsername(user.getUsername());
+		
+		if (existingUser == null) {
+			return false;
+		}
+		
+		template.delete(existingUser);
+		return true;
+	}
+        
+        
+        
+        
+        
 }

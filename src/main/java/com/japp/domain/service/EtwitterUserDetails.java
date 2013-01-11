@@ -9,10 +9,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 
-/**
-* @author mh
-* @since 07.03.11
-*/
+
 public class EtwitterUserDetails implements UserDetails {
     private final User user;
 

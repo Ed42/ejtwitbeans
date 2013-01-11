@@ -1,0 +1,183 @@
+body {
+	font-family: Arial, sans-serif;
+	width: 500px;
+	margin: auto;
+}
+
+h1, hr {
+	margin: 0px;
+	padding: 0px;
+}
+
+#banner {
+	background: black;
+	padding: 5px;
+	color: white;
+	margin-top: 5px;
+}
+
+#controlBar {
+	padding-top: 3px;	
+}
+
+table {
+	border: 1px solid;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+tr, td, th {
+	border: 1px solid;
+	text-align: left;
+	padding: 5px;
+}
+
+caption {
+	font-weight: bold;
+	text-align: left;
+}
+
+form {
+	margin-top: 30px;
+	width: 70%;
+}
+
+legend {
+	font-weight: bold;
+}
+
+form input {
+	float: right;
+}
+
+fieldset input, fieldset select {
+	margin-left: 10px;	
+	float: none;
+}
+
+fieldset label {
+	float: left;
+	width: 80px;
+	text-align: right;
+}
+
+#username {
+	color: red;
+	font-weight: bold;
+}
+
+#menu-username {
+	color: red;
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.message {
+	color: red;
+	text-align: center;	
+}
+
+.login-form {
+    position:fixed;
+    float:right;
+    display: inline-block;
+	padding: 5px;
+	width: 280px;
+	height: 160px;
+	margin: auto;
+	text-align: center;
+	margin-top: 10px;
+        right:20px;
+        top:0px;
+}
+
+.login-form fieldset {
+	border:0;	
+}
+
+.login-form legend {
+	margin: 0px;
+	padding: 0px;
+	text-align: left;
+}
+
+
+
+.login-form input {
+	float: right;
+}
+
+/**
+* Menu based on James Owers' Horizontal CSS List Menu
+* @see http://jamesowers.co.uk/css-tutorials/50/horizontal-css-list-menu/
+*/
+.menu {
+    width: 100%;
+    background-color: #333; 
+}
+    
+.menu ul {
+    margin: 0; 
+    padding: 0;
+    float: left;
+}
+ 
+.menu ul li {
+    display: inline;
+}
+ 
+.menu ul li a {
+    float: left; 
+    text-decoration: none;
+    color: white;
+    padding: 10.5px 11px;
+    background-color: #333; 
+}
+ 
+.menu ul li a:visited {
+    color: white;
+}
+ 
+.menu ul li a:hover, .menu ul li .current {
+    color: #fff;
+    background-color:#0b75b2;
+}
+
+ .spalshHeader {
+     position:relative;
+     top:0;
+     display:block;
+      width:346px; 
+      height:18px;
+      margin:10px 0 10px 10px;
+      padding: 6px;       
+    }
+
+.jettyImage  {  
+   position:fixed;
+   display:inline-block;
+   width:360px;
+   height:260px;
+   margin:10px 0 10px 10px;
+   top:40px;
+    } 
+    
+
+    .splashTextBlock {
+      position:fixed;
+      display:inline-block; 
+      margin:10px 0 10px 15px;
+      width:240px;  
+      top:0px;
+      left:390px;
+    }
+    .splashText {
+      display:block;   
+      width:220px; 
+      margin:10px 0 10px 15px;
+      padding: 6px; 
+      font-weight:300;
+      font-size : 12px;
+      letter-spacing:2px; 
+    }

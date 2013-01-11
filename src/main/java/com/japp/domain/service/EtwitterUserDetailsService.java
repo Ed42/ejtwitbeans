@@ -15,11 +15,14 @@ public interface EtwitterUserDetailsService extends UserDetailsService {
     EtwitterUserDetails loadUserByUsername(String login) throws UsernameNotFoundException, DataAccessException;
 
     User getUserFromSession();
-
-
-
+    User create(User user);
+    User update(User user);
+    Boolean deleteExistingUser(User user);
     @Transactional
     User register(String username, String name, String password);
+    
+    
+    
 
 
 }
