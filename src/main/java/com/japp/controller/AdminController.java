@@ -77,20 +77,19 @@ public class AdminController {
             @RequestParam String username,
             @RequestParam String password,
             @RequestParam String email,
+            @RequestParam String originaluname,
             @RequestParam Integer role) {
 
      User existingUser = new User(email, username, password, UserMapper.mapRoles(role)  );
-        return UserMapper.map(service.update(existingUser));
+        return UserMapper.map(service.update(existingUser, originaluname));
     }
 
+    
+    
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public @ResponseBody
-    Boolean delete(
-            @RequestParam String username) {
+    Boolean delete(@RequestParam String username) {
 
-        User existingUser = new User("bb", "bb", username, UserMapper.mapRoles(1)  );
-        existingUser.setUsername(username);
-
-        return service.deleteExistingUser(existingUser);
+        return service.deleteExistingUser(username);
     }
 }

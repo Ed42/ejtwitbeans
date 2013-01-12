@@ -47,7 +47,7 @@ public class EtwitterUserDetailsServiceTest {
 
     @Test
     public void userRepoTest() {
-           sLogger.warn("EtwitterUserDetailsServiceTest: userRepoTest");
+        sLogger.warn("EtwitterUserDetailsServiceTest: userRepoTest");
 
         User user = userRepository.save(new User("admin@admin.com", "admin", "admin", User.Roles.ROLE_USER));
 
@@ -55,22 +55,40 @@ public class EtwitterUserDetailsServiceTest {
         List<User> users = new ArrayList<User>();
         for (User r : list) {
             if (r.getUsername().equals("admin")) {
-                sLogger.warn("EtwitterUserDetailsServiceTest: userRepoTest found"+r.getEmail());          
-                    }  }
-        
-        
-        User user2 =  new User("null user", "null user", "null user", User.Roles.ROLE_USER);
-        
-        
-        if (user2.getEmail().equals("null user")) sLogger.warn("EtwitterUserDetailsServiceTest: userRepoTest found"+user2.getEmail());  
+                sLogger.warn("EtwitterUserDetailsServiceTest: userRepoTest found" + r.getEmail());
+            }
+        }
+        User user2 = new User("null user", "null user", "null user", User.Roles.ROLE_USER);
+        if (user2.getEmail().equals("null user")) {
+            sLogger.warn("EtwitterUserDetailsServiceTest: userRepoTest found" + user2.getEmail());
+        }
 
-            User user3 = template.save(user2);
-            
-            sLogger.warn("EtwitterUserDetailsServiceTest: userRepoTest found"+user3.getEmail()); 
-            
-            
-            
-            
-            
+        User user3 = template.save(user2);
+
+        sLogger.warn("EtwitterUserDetailsServiceTest: userRepoTest found" + user3.getEmail());
+
+        EndResult<User> list1 = template.findAll(User.class);
+        while (list1.iterator().hasNext()) {
+            User u = list1.iterator().next();
+            sLogger.warn("EtwitterUserDetailsServiceTest: userRepoTest found: " + u.getUsername());
+        }
+        sLogger.warn("EtwitterUserDetailsServiceTest: userRepoTest delete");
+        template.delete(user3);
+        EndResult<User> list2 = template.findAll(User.class);
+        while (list2.iterator().hasNext()) {
+            User u = list2.iterator().next();
+            sLogger.warn("EtwitterUserDetailsServiceTest: userRepoTest found: " + u.getUsername());
+        }
+        sLogger.warn("EtwitterUserDetailsServiceTest: userRepoTest update user");
+        sLogger.warn("user: " + user.getUsername() + " ; " + user.getEmail());
+        user.setUsername("userRepoTest");
+        user.setEmail("userRepoTest email");
+        user.setRole(user.getRole()[0]);
+
+        User user4 =  template.save(user);
+        
+        sLogger.warn("EtwitterUserDetailsServiceTest: userRepoTest updated user");
+        sLogger.warn("user now : " + user4.getUsername() + " ; " + user4.getEmail());
+
     }
 }

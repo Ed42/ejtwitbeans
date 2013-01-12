@@ -23,9 +23,7 @@ public class UserRepositoryImpl implements EtwitterUserDetailsService {
 
     @Autowired
     private Neo4jOperations template;
-    
-     private static org.slf4j.Logger sLogger = LoggerFactory.getLogger(UserRepositoryImpl.class);
-     
+    private static org.slf4j.Logger sLogger = LoggerFactory.getLogger(UserRepositoryImpl.class);
 
     @Override
     public EtwitterUserDetails loadUserByUsername(String username) throws UsernameNotFoundException, DataAccessException {
@@ -73,28 +71,33 @@ public class UserRepositoryImpl implements EtwitterUserDetailsService {
         context.setAuthentication(authentication);
 
     }
-    
+
     @Transactional
     private User findByUsername(String username) {
-        
+
         EndResult<User> list = template.findAll(User.class);
         List<User> users = new ArrayList<User>();
-            for (User r : list) {
-                if(r.getUsername().equals(username))return r;         
+        for (User r : list) {
+            if (r.getUsername().equals(username)) {
+                return r;
+            }
         }
-       return new User("null user", "null user", "null user", User.Roles.ROLE_USER);
-   
+        return new User("null user", "null user", "null user", User.Roles.ROLE_USER);
+
     }
-    
+
     @Transactional
     public User create(User user) {
         User existingUser = findByUsername(user.getUsername());
-        if (existingUser.getEmail().equals("null user"))  return template.save(user);
-        return existingUser ;
+        if (existingUser.getEmail().equals("null user")) {
+            return template.save(user);
+        }
+        return existingUser;
     }
 
-    public User update(User user) {
-        User existingUser = findByUsername(user.getUsername());
+    @Transactional
+    public User update(User user, String origName) {
+        User existingUser = findByUsername(origName);
 
         if (existingUser == null) {
             return null;
@@ -102,19 +105,20 @@ public class UserRepositoryImpl implements EtwitterUserDetailsService {
 
         existingUser.setUsername(user.getUsername());
         existingUser.setEmail(user.getEmail());
+        existingUser.setPassword(user.getPassword());
         existingUser.setRole(user.getRole()[0]);
 
         return template.save(existingUser);
     }
 
-    public Boolean deleteExistingUser(User user) {
-        User existingUser = findByUsername(user.getUsername());
-
-        if (existingUser == null) {
+    @Transactional
+    public Boolean deleteExistingUser(String username) {
+        User u = findByUsername(username);
+        if (u.getUsername().equals("null user")) {
             return false;
+        } else {
+            template.delete(u);
         }
-
-        template.delete(existingUser);
         return true;
     }
 }

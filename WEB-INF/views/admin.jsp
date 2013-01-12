@@ -120,6 +120,7 @@
 				<legend>Edit Record</legend>
 				<label for='editFirstName'>Username</label><input type='text' id='editUsername'/><br/>
 				<label for='editLastName'>Email</label><input type='text' id='editEmail'/><br/>
+                                <label for='newPassword'>Password</label><input type='password' id='editPassword'/><br/>
 				<label for='editRole'>Role</label>
 					<select id='editRole'>
 						<option value='1'>Admin</option>

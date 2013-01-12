@@ -79,6 +79,7 @@ function submitUpdateRecord() {
         username: $('#editUsername').val(),
         email: $('#editEmail').val(),
         password: $('#editPassword').val(),
+        originaluname: urlHolder.unameStore, 
         role: $('#editRole').val()
     }, 
     function(response) {
@@ -121,6 +122,7 @@ function fillEditForm() {
     $('#editEmail').val( $('#tableUsers').data('model')[selected].email );
     $('#editPassword').val( $('#tableUsers').data('model')[selected].password );
     $('#editRole').val( $('#tableUsers').data('model')[selected].role );
+     urlHolder.unameStore = $('#tableUsers').data('model')[selected].username;
 }
 
 function resetNewForm() {

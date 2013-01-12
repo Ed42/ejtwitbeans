@@ -16,8 +16,8 @@ public interface EtwitterUserDetailsService extends UserDetailsService {
 
     User getUserFromSession();
     User create(User user);
-    User update(User user);
-    Boolean deleteExistingUser(User user);
+    User update(User user, String origName);
+    Boolean deleteExistingUser(String username);
     @Transactional
     User register(String username, String name, String password);
     
