@@ -1,111 +1,226 @@
-body {
-	font-family: Arial, sans-serif;
-	width: 500px;
-	margin: auto;
+@import url(typography.css);
+@import url(forms.css);
+
+
+* {
+    outline-style: none;
+}
+
+body { 
+    margin:0; 
+    padding:0; 
+    background : #010100; 
+}
+
+
+#header {
+    background: url(../images/header-curtain.png) repeat-y bottom center #010100;	
+    border-bottom: 1px solid #5C5C45;
+    height: 70px;
+}
+
+
+
+#header-topbar {
+    display:block;
+    height:24px;
+    padding: 0 0 0 10px;
+    color: #DDDDDD;
+    background:#0b0f07;
+    width:100%;
+}
+
+
+#header-topbar form.search {
+    display:inline-block;
+    position:absolute;
+    height:22px;
+    width:220px;
+    right:4%;
+     margin:0;
+}
+
+
+#header-topbar form.search input {
+    position:absolute;
+    margin:0;
+    top:0;
+    right:0;
+    float:right;  
+}
+#header-topbar form.search label {
+    position:absolute;
+    margin-top:4px;
+    top:0;
+    float:left;  
+}
+
+
+#header-topbar .navigation {
+    display:inline-block;
+    position:absolute;
+    right:34%;
+    margin-top:4px;
+    top:0;
+}
+
+#header-splash {
+    text-align:center;
+    background: url(../images/header-splash-bg.png) repeat-x bottom center;
+}
+
+#logo-splash {
+    position:relative;
+    top:4px;
+}
+
+#logo img {
+    padding: 10px 10px 0;
+}
+
+
+
+
+.navigation a {
+    color: #d8d8d8;
+    text-decoration:none;
+    padding: 0 0 0 5px;
+}
+
+#content {
+    padding: 10px;
+}
+
+#footer {
+    text-align:center;
+    color: #999999;
+    font-size: 12px;
+    padding: 10px;
+    clear:both;
+    position:absolute;
+    bottom:4%;
+}
+
+#footer img {
+    padding: 10px;
+}
+/**
+ * SEARCH RESULTS
+ */
+
+.search-results > li {
+    border-top: 1px solid #666666;
+    padding: 10px;
+}
+
+.search-result-details {
+    /*  float:left;
+      padding: 0px 10px;
+    */
 }
 
 h1, hr {
-	margin: 0px;
-	padding: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
 #banner {
-	background: black;
-	padding: 5px;
-	color: white;
-	margin-top: 5px;
+    background: black;
+    padding: 5px;
+    color: white;
+    margin-top: 5px;
 }
 
 #controlBar {
-	padding-top: 3px;	
+    padding-top: 3px;	
 }
 
 table {
-	border: 1px solid;
-	width: 100%;
-	border-collapse: collapse;
+    border: 1px solid;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 tr, td, th {
-	border: 1px solid;
-	text-align: left;
-	padding: 5px;
+    border: 1px solid;
+    text-align: left;
+    padding: 5px;
 }
 
 caption {
-	font-weight: bold;
-	text-align: left;
+    font-weight: bold;
+    text-align: left;
 }
 
 form {
-	margin-top: 30px;
-	width: 70%;
+    margin-top: 30px;
+    width: 70%;
 }
 
 legend {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 form input {
-	float: right;
+    float: right;
 }
 
 fieldset input, fieldset select {
-	margin-left: 10px;	
-	float: none;
+    margin-left: 10px;	
+    float: none;
 }
 
 fieldset label {
-	float: left;
-	width: 80px;
-	text-align: right;
+    float: left;
+    width: 80px;
+    text-align: right;
 }
 
 #username {
-	color: red;
-	font-weight: bold;
+    color: red;
+    font-weight: bold;
 }
 
 #menu-username {
-	color: red;
-	float: right;
-	margin-top: 10px;
-	margin-right: 10px;
+    color: red;
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
 }
 
 .message {
-	color: red;
-	text-align: center;	
+    color: red;
+    text-align: center;	
 }
 
 .login-form {
     position:fixed;
     float:right;
     display: inline-block;
-	padding: 5px;
-	width: 280px;
-	height: 160px;
-	margin: auto;
-	text-align: center;
-	margin-top: 10px;
-        right:20px;
-        top:0px;
+    padding: 5px;
+    width: 280px;
+    height: 160px;
+    margin: auto;
+    text-align: center;
+    margin-top: 10px;
+    right:20px;
+    top:0px;
 }
 
 .login-form fieldset {
-	border:0;	
+    border:0;	
 }
 
 .login-form legend {
-	margin: 0px;
-	padding: 0px;
-	text-align: left;
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
 }
 
 
 
 .login-form input {
-	float: right;
+    float: right;
 }
 
 /**
@@ -116,17 +231,17 @@ fieldset label {
     width: 100%;
     background-color: #333; 
 }
-    
+
 .menu ul {
     margin: 0; 
     padding: 0;
     float: left;
 }
- 
+
 .menu ul li {
     display: inline;
 }
- 
+
 .menu ul li a {
     float: left; 
     text-decoration: none;
@@ -134,50 +249,12 @@ fieldset label {
     padding: 10.5px 11px;
     background-color: #333; 
 }
- 
+
 .menu ul li a:visited {
     color: white;
 }
- 
+
 .menu ul li a:hover, .menu ul li .current {
     color: #fff;
     background-color:#0b75b2;
 }
-
- .spalshHeader {
-     position:relative;
-     top:0;
-     display:block;
-      width:346px; 
-      height:18px;
-      margin:10px 0 10px 10px;
-      padding: 6px;       
-    }
-
-.jettyImage  {  
-   position:fixed;
-   display:inline-block;
-   width:360px;
-   height:260px;
-   margin:10px 0 10px 10px;
-   top:40px;
-    } 
-    
-
-    .splashTextBlock {
-      position:fixed;
-      display:inline-block; 
-      margin:10px 0 10px 15px;
-      width:240px;  
-      top:0px;
-      left:390px;
-    }
-    .splashText {
-      display:block;   
-      width:220px; 
-      margin:10px 0 10px 15px;
-      padding: 6px; 
-      font-weight:300;
-      font-size : 12px;
-      letter-spacing:2px; 
-    }
