@@ -1,4 +1,7 @@
-<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ page import="org.springframework.security.core.context.SecurityContextHolder" %>
 
 <c:url value="/admin/records" var="recordsUrl"/>
 <c:url value="/admin/create" var="addUrl"/>
@@ -73,7 +76,15 @@
 </head>
 
 <body>
-	<h1 id='banner'>Admin Record System</h1>
+        <!--span id="menu-username"><%=SecurityContextHolder.getContext().getAuthentication().getName()%></span -->
+         <div id="header">
+			<div id="header-topbar">
+                          
+                          <%@ include file="/WEB-INF/views/includes/navigation.jsp" %>         
+                            <h1 id='banner'>Admin Record System</h1>
+			</div>
+		</div>
+	
 	<hr/>
 	
 	<table id='tableUsers'>

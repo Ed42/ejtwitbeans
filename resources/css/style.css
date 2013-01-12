@@ -15,19 +15,32 @@ body {
 
 #header {
     background: url(../images/header-curtain.png) repeat-y bottom center #010100;	
-    border-bottom: 1px solid #5C5C45;
+    border: 1px solid #5C5C45;
     height: 70px;
 }
 
 
 
 #header-topbar {
+     background: url(../images/header-splash-bg.png) repeat-x bottom center;
     display:block;
-    height:24px;
+    height:30px;
     padding: 0 0 0 10px;
     color: #DDDDDD;
     background:#0b0f07;
     width:100%;
+}
+
+
+#header-topbar .navigation {
+    display:inline-block;
+    position:absolute;
+    right:10%;
+    margin-top:4px;
+    top:0;
+    width:50%;
+    padding-right:10px;
+    
 }
 
 
@@ -36,8 +49,9 @@ body {
     position:absolute;
     height:22px;
     width:220px;
-    right:4%;
-     margin:0;
+     margin:0 14px 0 5px;
+     left:340px;
+     
 }
 
 
@@ -52,16 +66,26 @@ body {
     position:absolute;
     margin-top:4px;
     top:0;
-    float:left;  
+    float:left; 
+    
 }
 
+.navigation a {
+    display:inline-block;
+    margin-top: 4px;
+    color: #d8d8d8;
+    text-decoration:none;
+    padding: 0 20px 0 5px;
+  
+}
 
-#header-topbar .navigation {
+#menu-username {
     display:inline-block;
     position:absolute;
-    right:34%;
-    margin-top:4px;
-    top:0;
+    color: red;
+    float: right;
+    margin-top: 4px;
+    left:240px;
 }
 
 #header-splash {
@@ -75,17 +99,12 @@ body {
 }
 
 #logo img {
-    padding: 10px 10px 0;
+    padding: 0 0 0 10px;
 }
 
 
 
 
-.navigation a {
-    color: #d8d8d8;
-    text-decoration:none;
-    padding: 0 0 0 5px;
-}
 
 #content {
     padding: 10px;
@@ -181,12 +200,6 @@ fieldset label {
     font-weight: bold;
 }
 
-#menu-username {
-    color: red;
-    float: right;
-    margin-top: 10px;
-    margin-right: 10px;
-}
 
 .message {
     color: red;

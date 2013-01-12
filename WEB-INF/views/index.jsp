@@ -1,5 +1,8 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" session="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ page import="org.springframework.security.core.context.SecurityContextHolder" %>
+
 
 	<head>
 	    <title>Ejetty Twitter App - </title>
@@ -11,8 +14,8 @@
 	<body>
 		<div id="header">
 			<div id="header-topbar">
-                          <%@ include file="/WEB-INF/views/includes/navigation.jsp" %>
-                          <%@ include file="/WEB-INF/views/includes/search.jsp" %>
+                          
+                          <%@ include file="/WEB-INF/views/includes/navigation.jsp" %>         
 		
 			</div>
 			<a href="/" id="logo"><img src="<c:url value="/resources/images/logo.png"/>" /></a>
