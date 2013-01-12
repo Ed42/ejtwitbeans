@@ -35,10 +35,10 @@ body {
 #header-topbar .navigation {
     display:inline-block;
     position:absolute;
-    right:10%;
+    right:4%;
     margin-top:4px;
     top:0;
-    width:50%;
+    width:60%;
     padding-right:10px;
     
 }
@@ -50,7 +50,7 @@ body {
     height:22px;
     width:220px;
      margin:0 14px 0 5px;
-     left:340px;
+     left:380px;
      
 }
 
@@ -75,9 +75,28 @@ body {
     margin-top: 4px;
     color: #d8d8d8;
     text-decoration:none;
-    padding: 0 20px 0 5px;
+    padding: 0 12px 0 5px;
   
 }
+
+.navigation a.register {
+     position:absolute;
+  left:260px;   
+}
+
+.navigation a.login {
+     position:absolute;
+ left:200px;      
+}
+.navigation a.home {
+     position:absolute;
+ left:120px;       
+}
+.navigation a.logout {
+     position:absolute;
+ left:180px;       
+}
+
 
 #menu-username {
     display:inline-block;
@@ -85,12 +104,12 @@ body {
     color: red;
     float: right;
     margin-top: 4px;
-    left:240px;
+    left:264px;
 }
 
 #header-splash {
     text-align:center;
-    background: url(../images/header-splash-bg.png) repeat-x bottom center;
+   
 }
 
 #logo-splash {
@@ -102,13 +121,29 @@ body {
     padding: 0 0 0 10px;
 }
 
-
-
-
-
 #content {
     padding: 10px;
+  background: url(../images/header-splash-bg.png) repeat-x bottom center;   
 }
+
+
+div.introText {
+    
+    background-color: gainsboro;
+    padding: 20px;
+    margin:4%;
+    height:40%;
+    width:60%;
+}
+div.introText p {
+      padding: 6px; 
+      font-weight:600;
+      font-size : 14px;
+      letter-spacing:1px;
+    
+}
+
+
 
 #footer {
     text-align:center;
