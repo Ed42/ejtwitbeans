@@ -74,8 +74,9 @@ public class UserRepositoryImpl implements EtwitterUserDetailsService {
 
     @Transactional
     private User findByUsername(String username) {
-
+        sLogger.warn("UserRepositoryImpl findByUsername: "+username);
         EndResult<User> list = template.findAll(User.class);
+        
         List<User> users = new ArrayList<User>();
         for (User r : list) {
             if (r.getUsername().equals(username)) {

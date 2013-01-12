@@ -2,10 +2,13 @@ package com.japp;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.japp.domain.service.InitialiseDatabase;
 import com.japp.guice.JAppModule;
 import com.japp.server.AdminServer;
 import com.japp.util.Logging;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Hello world!
@@ -30,7 +33,7 @@ public class App {
                 sLogger.warn("JettyApp: injecting AdminServer");
                 AdminServer serverAdmin = injector.getInstance(AdminServer.class); 
                 serverAdmin.startAndWait();
-      
+           
                 }
                 catch( Exception e ) {
         	sLogger.error("Unable to initialise WebServer..", e);

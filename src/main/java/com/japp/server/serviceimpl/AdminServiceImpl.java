@@ -14,6 +14,7 @@ import org.eclipse.jetty.util.thread.QueuedThreadPool;
 import org.eclipse.jetty.webapp.WebAppContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class AdminServiceImpl extends AbstractIdleService implements AdminService{
     
@@ -22,7 +23,7 @@ public class AdminServiceImpl extends AbstractIdleService implements AdminServic
         private Integer adminPort = 8080;
         private String ip = "localhost";
         private Server serverAdmin;
-      
+        private String path;
         
         @Inject
         public AdminServiceImpl() {
@@ -60,6 +61,10 @@ public class AdminServiceImpl extends AbstractIdleService implements AdminServic
         } catch (Exception ex) {
             java.util.logging.Logger.getLogger(AdminServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+ 
+        
+        
    }
       
          @Override
@@ -76,7 +81,7 @@ public class AdminServiceImpl extends AbstractIdleService implements AdminServic
         restServer.setDescriptor(restServer+"/WEB-INF/web.xml");       
         restServer.setResourceBase(".");
         restServer.setParentLoaderPriority(true);
-        
+   //     sLogger.warn("restServer: "+ restServer.getWar());
         return restServer;
 
     }

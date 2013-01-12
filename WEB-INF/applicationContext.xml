@@ -17,7 +17,11 @@
 
     <neo4j:config storeDirectory="bin/graph.db"/>
     <neo4j:repositories base-package="com.japp.repository"/>
-
+    
+    <!-- Service for initializing Neo4j with sample data. Currently disabled
+	due to an unconfirmed bug 
+	<bean id="initialiseDatabase" class="com.japp.domain.service.InitialiseDatabase" factory-method="init"/> 
+            -->
     <tx:annotation-driven mode="proxy"/>
 
 </beans>
