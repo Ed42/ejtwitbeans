@@ -26,6 +26,7 @@
         <div class =" introText  ui-corner-all ui-helper-reset ">
         <h2>Under Construction</h2>
 	<p>Demo Twitter App</p>
+        <p> update twitter timline search functional</p>
         <p>Instructions</p>
         <p>Log In as User "test"  "test"</p>
         <p>Log In as Admin user "adminuser"  "adminpwd"</p>
