@@ -12,10 +12,10 @@ body {
     background : #010100; 
 }
 
-#content {
+#contentTwitfeed {
   display:block;   
   height:70%;  
-  overflow:scroll;
+   overflow-x:hidden; overflow-y:scroll;
   width:90%;
     
 }
@@ -136,15 +136,13 @@ body {
 }
 
 
-img {
-    padding: 10px;
+
+li.imagedItem {
+    
+   padding:10px 0 10px 0; 
+    
 }
 
-ul.imagedList {
-    
-   padding: 10px; 
-    
-}
 
 
 div.introText {

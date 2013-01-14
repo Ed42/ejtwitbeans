@@ -24,9 +24,9 @@
         </div>
         <a  href="/" id="logo"><img  class="ui-widget ui-corner-all" src="<c:url value="/resources/images/logo.png"/>" /></a>
     </div>
-    <div id="content">
+    <div id="contentTwitfeed">
       
-<h3>Your Twitter Timeline</h3>
+<h3><c:out value="${timelineName}"/>  Twitter Timeline</h3>
 
 
 <div class="feed">
@@ -36,7 +36,7 @@
 		<div class="image">
 			<c:if test="${not empty tweet.profileImageUrl}"><img src="<c:out value="${tweet.profileImageUrl}"/>" align="left"/></c:if>
 		</div>
-		<div class="content">
+		<div class="contentInnerTwitFeed">
 		<strong><a href="http://twitter.com/<c:out value="${tweet.fromUser}" />"><c:out value="${tweet.fromUser}" /></a></strong><br/>
 		<c:out value="${tweet.text}" /><br/>
 		<span class="postTime"><c:out value="${tweet.createdAt}"/></span>

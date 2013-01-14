@@ -30,7 +30,7 @@ public class TweetController {
         List<Tweet> results = queryForTweets(timelineType);
 
         model.addAttribute("timeline", results);
-
+        model.addAttribute("timelineName", timelineType);
        // return  "redirect:/timeline";    
        return  "timeline";
     }
