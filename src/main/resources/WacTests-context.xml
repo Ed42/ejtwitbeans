@@ -2,13 +2,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:neo4j="http://www.springframework.org/schema/data/neo4j"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:social="http://www.springframework.org/schema/spring-social"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-        http://www.springframework.org/schema/data/neo4j http://www.springframework.org/schema/data/neo4j/spring-neo4j.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
 	http://www.springframework.org/schema/spring-social http://www.springframework.org/schema/social/spring-social-1.0.xsd">
 
@@ -23,8 +22,6 @@
 
     <context:spring-configured/>
 
-    <neo4j:config storeDirectory="bin/graph.db"/>
-    <neo4j:repositories base-package="com.japp.repository"/>
     
     <bean id="connectionFactoryLocator" class="org.springframework.social.connect.support.ConnectionFactoryRegistry">
 		<property name="connectionFactories">

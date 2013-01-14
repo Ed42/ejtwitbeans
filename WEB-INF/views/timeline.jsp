@@ -2,7 +2,9 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ page import="org.springframework.security.core.context.SecurityContextHolder" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
+<%@ page session="false" %>
 
 <head>
     <title>Ejetty Twitter App - </title>
@@ -16,22 +18,34 @@
 
 </head>
 <body>
-    <div id="header" class="ui-widget-header ui-widget ui-corner-all">
+       <div id="header" class="ui-widget-header ui-widget ui-corner-all">
         <div id="header-topbar">
             <%@ include file="/WEB-INF/views/includes/navigation.jsp" %>         
         </div>
         <a  href="/" id="logo"><img  class="ui-widget ui-corner-all" src="<c:url value="/resources/images/logo.png"/>" /></a>
     </div>
     <div id="content">
-        <div class =" introText  ui-corner-all ui-helper-reset ">
-        <h2>Under Construction</h2>
-	<p>Demo Twitter App</p>
-        <p>Instructions</p>
-        <p>Log In as User "test"  "test"</p>
-        <p>Log In as Admin user "adminuser"  "adminpwd"</p>
-        <p>As Admin user select "Administration to test admin panel, add, update and delete user functions</p>
-         </div>
-    </div>
+      
+<h3>Your Twitter Timeline</h3>
+
+
+<div class="feed">
+<ul class="imagedList">
+<c:forEach items="${timeline}" var="tweet">
+	<li class="imagedItem">
+		<div class="image">
+			<c:if test="${not empty tweet.profileImageUrl}"><img src="<c:out value="${tweet.profileImageUrl}"/>" align="left"/></c:if>
+		</div>
+		<div class="content">
+		<strong><a href="http://twitter.com/<c:out value="${tweet.fromUser}" />"><c:out value="${tweet.fromUser}" /></a></strong><br/>
+		<c:out value="${tweet.text}" /><br/>
+		<span class="postTime"><c:out value="${tweet.createdAt}"/></span>
+		</div>
+	</li>
+</c:forEach>
+</ul>
+</div>
+</div>
     <%@ include file="/WEB-INF/views/includes/footer.jsp" %>
 </body>
 </html>

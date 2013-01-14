@@ -23,7 +23,7 @@
     <mvc:resources mapping="/resources/**" location="/resources/"/>
      <mvc:resources mapping="/favicon.ico" location="/resources/favicon.ico"/>
       <mvc:resources mapping="/robots.txt" location="/resources/robots.txt"/>
-    <context:component-scan base-package="com.japp.controller"/>
+    <context:component-scan base-package="com.japp"/>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/views/" p:suffix=".jsp"/>
 

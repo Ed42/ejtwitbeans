@@ -22,6 +22,7 @@
         <security:intercept-url pattern="/auth/login" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <security:intercept-url pattern="/auth/register" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <security:intercept-url pattern="/auth/denied" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <security:intercept-url pattern="/twitter/tline" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <security:intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <security:intercept-url pattern="/favicon.ico" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <security:intercept-url pattern="/robots.txt" access="IS_AUTHENTICATED_ANONYMOUSLY"/>

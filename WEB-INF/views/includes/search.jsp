@@ -1,8 +1,7 @@
 
-	<form class="search" action="/tweets" method="get">
+<form class ="search" action="/tline"  method="get">
+   <button type="submit" id ="searchButton">Search</button ><input class ="timelineType" name="timelineType" value="@YourTag" />
+</form>
 
-             <label for="q">Search</label><input type="text" name="q" value="Find tweet" />
-
-        </form>
 
     

@@ -12,6 +12,14 @@ body {
     background : #010100; 
 }
 
+#content {
+  display:block;   
+  height:70%;  
+  overflow:scroll;
+  width:90%;
+    
+}
+
 
 #header {
     background: url(../images/header-curtain.png) repeat-y bottom center #010100;	
@@ -38,7 +46,7 @@ body {
     right:4%;
     margin-top:4px;
     top:0;
-    width:60%;
+    width:64%;
     padding-right:10px;
     
 }
@@ -48,7 +56,7 @@ body {
     display:inline-block;
     position:absolute;
     height:22px;
-    width:220px;
+    width:260px;
      margin:0 14px 0 5px;
      left:380px;
      
@@ -57,14 +65,15 @@ body {
 
 #header-topbar form.search input {
     position:absolute;
-    margin:0;
+     margin:0 4px 0 6px;
     top:0;
     right:0;
     float:right;  
 }
-#header-topbar form.search label {
-    position:absolute;
-    margin-top:4px;
+
+#header-topbar form.search button#searchButton {
+    position:relative;
+    margin:4px 4px 0 6px;
     top:0;
     float:left; 
     
@@ -127,6 +136,17 @@ body {
 }
 
 
+img {
+    padding: 10px;
+}
+
+ul.imagedList {
+    
+   padding: 10px; 
+    
+}
+
+
 div.introText {
     
     background-color: gainsboro;
@@ -143,8 +163,6 @@ div.introText p {
     
 }
 
-
-
 #footer {
     text-align:center;
     color: #999999;
@@ -152,83 +170,13 @@ div.introText p {
     padding: 10px;
     clear:both;
     position:absolute;
-    bottom:4%;
+    bottom:0;
 }
 
 #footer img {
     padding: 10px;
 }
-/**
- * SEARCH RESULTS
- */
 
-.search-results > li {
-    border-top: 1px solid #666666;
-    padding: 10px;
-}
-
-.search-result-details {
-    /*  float:left;
-      padding: 0px 10px;
-    */
-}
-
-h1, hr {
-    margin: 0px;
-    padding: 0px;
-}
-
-#banner {
-    background: black;
-    padding: 5px;
-    color: white;
-    margin-top: 5px;
-}
-
-#controlBar {
-    padding-top: 3px;	
-}
-
-table {
-    border: 1px solid;
-    width: 100%;
-    border-collapse: collapse;
-}
-
-tr, td, th {
-    border: 1px solid;
-    text-align: left;
-    padding: 5px;
-}
-
-caption {
-    font-weight: bold;
-    text-align: left;
-}
-
-form {
-    margin-top: 30px;
-    width: 70%;
-}
-
-legend {
-    font-weight: bold;
-}
-
-form input {
-    float: right;
-}
-
-fieldset input, fieldset select {
-    margin-left: 10px;	
-    float: none;
-}
-
-fieldset label {
-    float: left;
-    width: 80px;
-    text-align: right;
-}
 
 #username {
     color: red;
@@ -271,38 +219,3 @@ fieldset label {
     float: right;
 }
 
-/**
-* Menu based on James Owers' Horizontal CSS List Menu
-* @see http://jamesowers.co.uk/css-tutorials/50/horizontal-css-list-menu/
-*/
-.menu {
-    width: 100%;
-    background-color: #333; 
-}
-
-.menu ul {
-    margin: 0; 
-    padding: 0;
-    float: left;
-}
-
-.menu ul li {
-    display: inline;
-}
-
-.menu ul li a {
-    float: left; 
-    text-decoration: none;
-    color: white;
-    padding: 10.5px 11px;
-    background-color: #333; 
-}
-
-.menu ul li a:visited {
-    color: white;
-}
-
-.menu ul li a:hover, .menu ul li .current {
-    color: #fff;
-    background-color:#0b75b2;
-}
