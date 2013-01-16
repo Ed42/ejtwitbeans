@@ -94,6 +94,12 @@ body {
  left:180px;       
 }
 
+.navigation a.admin  {
+  left:180px;  
+    
+}
+
+
 
 #menu-username {
     display:inline-block;
