@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
 
-    setUpAdminGui();
+
 	
 
 			
@@ -18,14 +18,11 @@ function setUpAdminGui() {
 
    var button_position = {
         'width' : '70px' , 
-        'margin':'0 4px 8px 6px', 
-        'padding':'0 2px 8px 2px', 
+        'margin':'0 4px 0 6px', 
+        'padding':'0 2px 4px 2px', 
         'height':'22px'
     }
     var button = $.extend( cssObj, button_position );
     
-     $( "#headerSearchButton" ).button().css(button);
-     
-     
      $( "#searchButton" ).button().css(button);
 }

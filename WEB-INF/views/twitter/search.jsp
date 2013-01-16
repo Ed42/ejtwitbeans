@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="resources/css/redmond/jquery-ui-1.9.2.custom.min.css" type="text/css" />
     <script src="resources/js/jquery-1.8.3.js"></script>
     <script src="resources/js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="resources/searchHelper.js"></script>
     <script src="resources/tweetHelper.js"></script>
 
 
@@ -26,21 +27,15 @@
     </div>
     <div id="contentTwitfeed">
       
-<h3><c:out value="${timelineName}"/>  Twitter Timeline</h3>
+<h3>Search Results for:   <c:out value="${searchTerm}"/></h3>
 
 
 <div class="feed">
 <ul class="imagedList">
-<c:forEach items="${timeline}" var="tweet">
+<c:forEach items="${seResults}" var="tokenizedTweet">
 	<li class="imagedItem">
-		<div class="image">
-			<c:if test="${not empty tweet.profileImageUrl}"><img src="<c:out value="${tweet.profileImageUrl}"/>" align="left"/></c:if>
-		</div>
-		<div class="contentInnerTwitFeed">
-		<strong><a href="http://twitter.com/<c:out value="${tweet.fromUser}" />"><c:out value="${tweet.fromUser}" /></a></strong><br/>
-		<c:out value="${tweet.text}" /><br/>
-		<span class="postTime"><c:out value="${tweet.createdAt}"/></span>
-		</div>
+            <p>Analysis:  [word]  [frequency] </p>
+            <c:out value="${tokenizedTweet.wordList}"/>
 	</li>
 </c:forEach>
 </ul>

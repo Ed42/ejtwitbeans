@@ -1,8 +1,12 @@
 package com.japp.controller;
 
+import com.japp.domain.TokenizedTweet;
+import com.japp.processor.TweetParser;
+import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.social.twitter.api.SearchResults;
 import org.springframework.social.twitter.api.TimelineOperations;
 import org.springframework.social.twitter.api.Tweet;
 import org.springframework.social.twitter.api.Twitter;
@@ -31,8 +35,8 @@ public class TweetController {
 
         model.addAttribute("timeline", results);
         model.addAttribute("timelineName", timelineType);
-       // return  "redirect:/timeline";    
-       return  "timeline";
+      
+       return  "twitter/timeline";
     }
 
     private List<Tweet> queryForTweets(String screenName) {
@@ -43,4 +47,34 @@ public class TweetController {
                 + " tweets to model");
         return results;
     }
+    
+    
+     @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public String showSearch(@RequestParam String search, Model model) {
+
+        sLogger.warn("Loading Twitter showSearch for : " + search);
+        List<TokenizedTweet> results = searchForTweets(search);
+
+        model.addAttribute("seResults", results);
+        model.addAttribute("searchTerm", search);
+       
+       return  "twitter/search";
+    }
+    
+    
+       private List<TokenizedTweet> searchForTweets(String term) {
+
+        SearchResults results = twitter.searchOperations().search(term);
+        List<Tweet> tweets = results.getTweets();
+        List<TokenizedTweet> tkTweets = new ArrayList<TokenizedTweet>();
+       for (Tweet tweet : tweets) {
+            TokenizedTweet tokenizedTweet = new TweetParser().parseTweet(tweet);
+            tkTweets.add(tokenizedTweet);
+            sLogger.warn("TweetController searchForTweets:  to [" + tokenizedTweet.getToUserId() + " ] : text data  [ " + tokenizedTweet.toString() + " ]");
+        }
+        return tkTweets;
+    }
+    
+    
+    
 }
