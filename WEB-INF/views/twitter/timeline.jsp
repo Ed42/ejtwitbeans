@@ -9,8 +9,9 @@
 <head>
     <title>Ejetty Twitter App - </title>
     <link rel="stylesheet" type="text/css" href="/resources/css/style.css">
+    
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery.ui.all.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/redmond/jquery-ui-1.9.2.custom.min.css" type="text/css" />
+     <link rel="stylesheet" href="resources/css/mint-choc/jquery-ui-1.9.2.custom.min.css" type="text/css" />
     <script src="resources/js/jquery-1.8.3.js"></script>
     <script src="resources/js/jquery-ui-1.9.2.custom.min.js"></script>
     <script src="resources/tweetHelper.js"></script>
@@ -22,7 +23,7 @@
         <div id="header-topbar">
             <%@ include file="/WEB-INF/views/includes/navigation.jsp" %>         
         </div>
-        <a  href="/" id="logo"><img  class="ui-widget ui-corner-all" src="<c:url value="/resources/images/logo.png"/>" /></a>
+      <a  href="/" id="logo">Search  Twitter Application</a>
     </div>
     <div id="contentTwitfeed">
       

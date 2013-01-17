@@ -9,7 +9,7 @@ $(document).ready(function () {
 
 var cssObj = {
     'font-weight' : '300',
-    'font-size' : '12px',
+    'font-size' : '9px',
     'letter-spacing':'1px'      
 }
 
@@ -17,10 +17,10 @@ var cssObj = {
 function setUpAdminGui() {
 
    var button_position = {
-        'width' : '70px' , 
+        'width' : '50px' , 
         'margin':'0 4px 8px 6px', 
         'padding':'0 2px 8px 2px', 
-        'height':'22px'
+        'height':'20px'
     }
     var button = $.extend( cssObj, button_position );
     

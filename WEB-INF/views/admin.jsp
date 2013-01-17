@@ -11,18 +11,21 @@
 <html>
 <head>
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery.ui.all.css" type="text/css">
-        <link rel="stylesheet" href="resources/css/redmond/jquery-ui-1.9.2.custom.min.css" type="text/css" />
+        <link rel="stylesheet" href="resources/css/mint-choc/jquery-ui-1.9.2.custom.min.css" type="text/css" />
         <!-- Load jQuery first before jQuery UI! -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script>
-	<link rel='stylesheet' type='text/css' media='screen' href='<c:url value="/resources/css/style.css"/>'/>
-	<script type='text/javascript' src='<c:url value="/resources/custom.js"/>'></script>
+	<link rel='stylesheet' type='text/css' media='screen' href="/resources/css/style.css"/>
+        <link rel='stylesheet' type='text/css' media='screen' href="/resources/css/admin.css"/>
+	<script type='text/javascript' src="/resources/custom.js"></script>
+       
 
 	<title>User Records</title>
 	
 	<script type='text/javascript'>
 	$(function() {
 		// init
+                
 		urlHolder.records = '${recordsUrl}';
 		urlHolder.add = '${addUrl}';
 		urlHolder.edit = '${editUrl}';
@@ -80,48 +83,48 @@
          <div id="header">
 			<div id="header-topbar">
                           
-                          <%@ include file="/WEB-INF/views/includes/navigation.jsp" %>         
+                          <%@ include file="/WEB-INF/views/includes/navigationAdmin.jsp" %>         
                             <h1 id='banner'>Admin Record System</h1>
 			</div>
 		</div>
 	
 	<hr/>
 	
-	<table id='tableUsers'>
+	<table class="ui-widget ui-corner-all" id='tableUsers'>
 		<caption></caption>
 		<thead>
 			<tr>
 				<th></th>
-				<th>Username</th>
-				<th>Email</th>
-				<th>Password</th>
-				<th>Role</th>
+				<th class="ui-widget ui-corner-all">Username</th>
+				<th class="ui-widget ui-corner-all">Email</th>
+				<th class="ui-widget ui-corner-all">Password</th>
+				<th class="ui-widget ui-corner-all">Role</th>
 			</tr>
 		</thead>
 	</table>
 	
 	<div id='controlBar'>
-		<input type='button' value='New' id='newBtn' />
-		<input type='button' value='Delete' id='deleteBtn' />
-		<input type='button' value='Edit' id='editBtn' />
-		<input type='button' value='Reload' id='reloadBtn' />
+		<input class="ui-widget-header ui-widget ui-corner-all" type='button' value='New' id='newBtn' />
+		<input class="ui-widget-header ui-widget ui-corner-all" type='button' value='Delete' id='deleteBtn' />
+		<input class="ui-widget-header ui-widget ui-corner-all" type='button' value='Edit' id='editBtn' />
+		<input class="ui-widget-header ui-widget ui-corner-all" type='button' value='Reload' id='reloadBtn' />
 	</div>
 	
 	<div id='newForm'>
 		<form>
   			<fieldset>
 				<legend>Create New Record</legend>
-				<label for='newUsername'>Username</label><input type='text' id='newUsername'/><br/>
-				<label for='newPassword'>Password</label><input type='password' id='newPassword'/><br/>
-				<label for='newFirstName'>Email</label><input type='text' id='newEmail'/><br/>
-				<label for='newRole'>Role</label>
+				<label class="ui-widget-header ui-widget ui-corner-all" for='newUsername'>Username</label><input type='text' id='newUsername'/><br/>
+				<label class="ui-widget-header ui-widget ui-corner-all" for='newPassword'>Password</label><input type='password' id='newPassword'/><br/>
+				<label class="ui-widget-header ui-widget ui-corner-all" for='newFirstName'>Email</label><input type='text' id='newEmail'/><br/>
+				<label class="ui-widget-header ui-widget ui-corner-all" for='newRole'>Role</label>
 					<select id='newRole'>
 						<option value='1'>Admin</option>
 						<option value='2' selected='selected'>Regular</option>
 					</select>
   			</fieldset>
-			<input type='button' value='Close' id='closeNewForm' />
-			<input type='submit' value='Submit'/>
+			<input class="ui-widget-header ui-widget ui-corner-all" type='button' value='Close' id='closeNewForm' />
+			<input class="ui-widget-header ui-widget ui-corner-all" type='submit' value='Submit'/>
 		</form>
 	</div>
 	
@@ -129,17 +132,17 @@
 		<form>
   			<fieldset>
 				<legend>Edit Record</legend>
-				<label for='editFirstName'>Username</label><input type='text' id='editUsername'/><br/>
-				<label for='editLastName'>Email</label><input type='text' id='editEmail'/><br/>
-                                <label for='newPassword'>Password</label><input type='password' id='editPassword'/><br/>
-				<label for='editRole'>Role</label>
+				<label class="ui-widget-header ui-widget ui-corner-all" for='editFirstName'>Username</label><input type='text' id='editUsername'/><br/>
+				<label class="ui-widget-header ui-widget ui-corner-all" for='editLastName'>Email</label><input type='text' id='editEmail'/><br/>
+                                <label class="ui-widget-header ui-widget ui-corner-all" for='newPassword'>Password</label><input type='password' id='editPassword'/><br/>
+				<label class="ui-widget-header ui-widget ui-corner-all" for='editRole'>Role</label>
 					<select id='editRole'>
 						<option value='1'>Admin</option>
 						<option value='2' selected='selected'>Regular</option>
 					</select>
 			</fieldset>
-			<input type='button' value='Close' id='closeEditForm' />
-			<input type='submit' value='Submit'/>
+			<input class="ui-widget-header ui-widget ui-corner-all" type='button' value='Close' id='closeEditForm' />
+			<input class="ui-widget-header ui-widget ui-corner-all" type='submit' value='Submit'/>
 		</form>
 	</div>
 	

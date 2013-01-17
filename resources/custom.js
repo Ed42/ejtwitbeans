@@ -4,17 +4,20 @@
 var urlHolder = new Object();
 
 function loadTable() {
+
+    
+    
     $.get(urlHolder.records, function(response) {
 		
         $('#tableUsers').find('tbody').remove();
  		
         for (var i=0; i<response.users.length; i++) {
-            var row = '<tr>';
+            var row = '<tr >';
             row += '<td><input type="radio" name="index" id="index" value="'+i+'"></td>';
-            row += '<td>' + response.users[i].username + '</td>';
-            row += '<td>' + response.users[i].email + '</td>';
-            row += '<td>' + response.users[i].password + '</td>';
-            row += '<td>' + getRole(response.users[i].role) + '</td>';
+            row += '<td class="ui-widget ui-corner-all adminRow">' + response.users[i].username + '</td>';
+            row += '<td class="ui-widget ui-corner-all adminRow">' + response.users[i].email + '</td>';
+            row += '<td class="ui-widget ui-corner-all adminRowPwd">' + response.users[i].password + '</td>';
+            row += '<td class="ui-widget ui-corner-all adminRow">' + getRole(response.users[i].role) + '</td>';
             row += '</tr>';
             $('#tableUsers').append(row);
         }

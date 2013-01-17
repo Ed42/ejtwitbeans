@@ -1,112 +1,65 @@
 
-#center { position:relative; height:65.5%; top:16px;}
+table#tableUsers {
+    
+  margin:12px 0 12px 20px;   
+}
 
-#centerTabs {
-    border:2px;	
+div#newForm {
+   width:400px; 
+    
+}
+
+
+div#editForm {
+   width:400px; 
+    
+}
+
+input#index {
+    size:10px;
+    width:10px;
+    height:12px;
+}
+
+
+td.adminRow {
+    
+    color: red;
+}
+
+
+
+td.adminRowPwd {
+    
+   color: white;  
+   font-size:6px;
+}
+
+#controlBar {
+   display:inline-block;
+   position:relative;
+   margin:20px 0 0 20px;
+  
+   width:360px;
+   padding:2px 20px 2px 20px;
+    }
+    
+  #controlBar input#newBtn, input#deleteBtn, input#editBtn, input#reloadBtn {
+        width:60px;
+        margin:2px 10px 2px 10px;
+      
+  }
+  
+  
+  label {
+  display: block;
+  float: left;
+  width: 60px;
+   margin:0 10px 0 10px;
 }
 
 input {
-    width:200px;
-    height:22px;
-    margin:12px 0 12px 0;
-
+    
+ margin:2px 10px 2px 10px;   
+    
 }
-label {
-    width:200px;
-    height:22px;
-    margin:12px 0 12px 0;  
-
-}
-
-
-
-/* Internet Explorer 7: setting "separate" results in bad visuals; all other browsers work fine with either value. */
-/* If set to "separate", then this rule is also needed to prevent double vertical borders on hover:
-table.ui-styled-table tr * + th, table.ui-styled-table tr * + td  { border-left-width: 0px !important; } */
-table.full {
-    border-collapse: collapse; 
-    width:70%;
-    height:70%;
-}
-
-table.full th {
-    border-collapse: collapse; 
-    width:210px;
-    height:26px;
-    font-size:18px;
-    font-weight:400; letter-spacing:2px; margin:4px 0 0 8px;
-}
-
-table.full td {
-    border-collapse: collapse; 
-    width:210px;
-    height:26px;
-}
-table.full tr {
-    border-collapse: collapse; 
-    width:440px;
-    height:26px;
-}
-
-div#tab-2 #Table2 {
-    border-collapse: collapse; 
-    width:70%;
-    height:50%;
-
-}
-
-
-div#tab-2 #Table2 th {
-    border-collapse: collapse; 
-    width:210px;
-    height:16px;
-    font-size:18px;
-    font-weight:400; letter-spacing:2px; margin:4px 0 0 8px;
-
-}
-div#tab-2 #Table2 td {
-    border-collapse: collapse; 
-    width:210px;
-    height:26px;
-}
-div#tab-2 #Table2 tr {
-    border-collapse: collapse; 
-    width:440px;
-    height:26px;
-}
-
-a.link { display: inline-block; font-size:11px; font-weight:400; letter-spacing:2px; margin:4px 0 0 8px; text-decoration:none; }
-/* Undo the "bolding" that jQuery UI theme may cause on hovered elements
-/* Internet Explorer 7: does not support "inherit", so use a MS proprietary expression along with an Internet Explorer <= 7 targeting hack
-        to make the visuals consistent across all supported browsers */
-table.ui-styled-table td.ui-state-hover {
-    font-weight: inherit;
-    *font-weight: expression(this.parentNode.currentStyle['fontWeight']);
-}
-
-/* Initally remove bottom border for all cells. */
-table.ui-styled-table th, table.ui-styled-table td { border-bottom-width: 0px !important; }
-
-/* Hovered-row cells should show bottom border (will be highlighted) */
-table.ui-styled-table tbody tr:hover th,
-table.ui-styled-table tbody tr:hover td
-{ border-bottom-width: 1px !important; }
-
-/* Remove top border if the above row is being hovered to prevent double horizontal borders. */
-table.ui-styled-table tbody tr:hover + tr th,
-table.ui-styled-table tbody tr:hover + tr td
-{ border-top-width: 0px !important; }
-
-/* Last-row cells should always show bottom border (not necessarily highlighted if not hovered). */
-/* Internet Explorer 7, Internet Explorer 8: selector dependent on CSS classes because of no support for :last-child */
-table.ui-styled-table tbody tr.last-child th,
-table.ui-styled-table tbody tr.last-child td
-{ border-bottom-width: 1px !important; }
-
-/* Last-row cells should always show bottom border (not necessarily highlighted if not hovered). */
-/* Internet Explorer 8 BUG: if these (unsupported) selectors are added to a rule, other selectors for that rule will stop working as well! */
-/* Internet Explorer 9 and later, Firefox, Chrome: make sure the visuals are working even without the CSS classes crutch. */
-table.ui-styled-table tbody tr:last-child th,
-table.ui-styled-table tbody tr:last-child td
-{ border-bottom-width: 1px !important; }
-

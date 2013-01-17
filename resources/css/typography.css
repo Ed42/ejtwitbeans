@@ -5,6 +5,15 @@ body {
   font-size:11px;
 }
 
+h1 {
+  color: #666666; /*#99CC33;*/
+  font-size: 16px;
+  text-transform: uppercase;
+  width:240px;
+ 
+}
+
+
 h2 {
   color: #314718; /*#99CC33;*/
   font-size: 16px;

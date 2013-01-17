@@ -7,7 +7,7 @@
 
     <sec:authorize access = "isAuthenticated()">    
         <sec:authorize access="hasRole('ROLE_ADMIN')">
-            <a href="<c:url value="/admin" />">Administration</a>
+           <a class = "admin" href="<c:url value="/admin" />">Administration</a>
         </sec:authorize>
         <a class = "logout" href="<c:url value="j_spring_security_logout" />">Logout</a>
         <span id="menu-username"><%=SecurityContextHolder.getContext().getAuthentication().getName()%></span>
