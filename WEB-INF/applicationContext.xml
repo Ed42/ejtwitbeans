@@ -10,7 +10,7 @@
 
     <context:annotation-config/>
     <context:component-scan base-package="com.japp">
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
     <context:spring-configured/>
