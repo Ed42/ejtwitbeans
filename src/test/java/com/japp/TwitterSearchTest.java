@@ -27,7 +27,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(locations = "classpath:/WacTests-context.xml")
+@ContextConfiguration(locations = "classpath*:/WacTests-context.xml")
 public class TwitterSearchTest {
 
     private static org.slf4j.Logger sLogger = LoggerFactory.getLogger(EtwitterUserDetailsServiceTest.class);

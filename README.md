@@ -24,8 +24,14 @@ git status
 git push  
 git remote -v  
 git push upstream  
-git rm -f       
+git rm -f   
+
+    
 
 !!!!!!!!!!!!!mvn !!!!!!!!!!!!!!!!!!!    
 mvn clean install    
-mvn exec:java -Dexec.mainClass="com.japp.App"   
+mvn exec:java -Dexec.mainClass="com.japp.App"
+
+local repo    G:\aDevBuild1\adevNbeans\ejtwitbeans  
+ssh 0c97be8d6b95436e8eb55d255accfaea@twiiterminedemo-democode.rhcloud.com
+

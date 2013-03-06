@@ -15,7 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-@ContextConfiguration(locations = "classpath:/applicationContext.xml")
+@ContextConfiguration(locations = "classpath*:/applicationContext.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
 public class EtwitterUserDetailsServiceTest {
