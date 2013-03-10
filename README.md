@@ -11,7 +11,7 @@ http://www.springsource.org/spring-data/neo4j
 http://www.springsource.org/node/3642  
 
 !!!!!!!!!!!!!git !!!!!!!!!!!!!!!!!!!  
-git remote add upstream ssh://99ee496f6d4847b2a62fe03a81e1e032@ejtwitbeans-democode.rhcloud.com/~/git/ejtwitbeans.git/    
+git remote add upstream git clone ssh://513c5be0e0b8cd9763000365@twittermine-wbdemo.rhcloud.com/~/git/twittermine.git/  
 
 git pull -s recursive -X theirs upstream master // merge files from this repo to openshit repo     
 
@@ -29,9 +29,19 @@ git rm -f
     
 
 !!!!!!!!!!!!!mvn !!!!!!!!!!!!!!!!!!!    
-mvn clean install    
+mvn clean install 
+local     
 mvn exec:java -Dexec.mainClass="com.japp.App"
+remote   
+ctl_app stop  
+cd app-root  
+cd repo  
+mvn clean install  
+to run as fork
+(setsid mvn exec:java -Dexec.mainClass="com.japp.App" &)  
 
-local repo    G:\aDevBuild1\adevNbeans\ejtwitbeans  
-ssh 0c97be8d6b95436e8eb55d255accfaea@twiiterminedemo-democode.rhcloud.com
+local repo ubuntu box   
+ssh 513c5be0e0b8cd9763000365@twittermine-wbdemo.rhcloud.com  
+
+http://twittermine-wbdemo.rhcloud.com/
 
